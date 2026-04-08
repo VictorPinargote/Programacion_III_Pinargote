@@ -1,0 +1,115 @@
+# =========================
+# DEPENDENCIAS
+# =========================
+node_modules/
+**/node_modules/
+
+# =========================
+# BUILD / DIST
+# =========================
+dist/
+build/
+.next/
+out/
+coverage/
+.tmp/
+.temp/
+.cache/
+**/dist/
+**/build/
+
+# =========================
+# LOGS
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# ENTORNO
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# SISTEMA OPERATIVO
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# EDITORES / IDEs
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# TESTING
+# =========================
+coverage/
+.nyc_output/
+
+# =========================
+# CACHE / HERRAMIENTAS
+# =========================
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# =========================
+# NESTJS ESPECÍFICO
+# =========================
+**/dist/
+**/node_modules/
+**/.nestjs-cli.json
+
+# =========================
+# REACT / FRONTEND
+# =========================
+**/.next/
+**/out/
+**/build/
+
+# =========================
+# PACKAGE MANAGERS
+# =========================
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# (Opcional: comenta esto si quieres versionar lockfiles)
+# !package-lock.json
+# !yarn.lock
+# !pnpm-lock.yaml
+
+# =========================
+# DOCKER
+# =========================
+docker-compose.override.yml
+*.local
+
+# =========================
+# ARCHIVOS GENERADOS
+# =========================
+*.tgz
+*.tar.gz
+
+# =========================
+# MONOREPO (Lerna / Turborepo / Nx)
+# =========================
+.nx/
+.turbo/
+lerna-debug.log
+
+# =========================
+# OTROS
+# =========================
+*.pid
+*.seed
+*.pid.lock
