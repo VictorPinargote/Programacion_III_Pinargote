@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces</title>
+</head>
+<body>
+    <h1>Tabla</h1>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Ciudad</th>
+        </tr>
+        <tr>
+            <td>Ana</td>
+            <td>25</td>
+            <td>Madrid</td>
+        </tr>
+        <tr>
+            <td>Luis</td>
+            <td>30</td>
+            <td>Barcelona</td>
+        </tr>
+    </table>
+
+    <h1>Tabla de secciones</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Productos</th>
+                <th>Stock</th>
+                <th>Categoria</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Ana</td>
+            <td>25</td>
+            <td>Madrid</td>
+        </tr>
+        <tr>
+            <td>Luis</td>
+            <td>30</td>
+            <td>Barcelona</td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td >Total de productos: 2</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h1>Tabla - scope calificaciones</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th scope="col">Materia</th>
+                <th scope="col">1er corte</th>
+                <th scope="col">2do corte</th>
+                <th scope="col">Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">Programación</td>
+                <td>9</td>
+                <td>10</td>
+                <td>8</td>
+            </tr>
+
+            <tr>
+                <td scope="row">Base de datos </td>
+                <td>10</td>
+                <td>10</td>
+                <td>9</td>
+            </tr>
+
+            <tr>
+                <td>Calidad de software</td>
+                <td>7</td>
+                <td>10</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Combinacion de celdas - calificaciones</h1>
+    <table border="1">
+        <tr>
+            <th rowspan="2">Equipos</th>
+            <th colspan="3">Resultados</th>
+            <th rowspan="2">Puntos</th>
+        </tr>
+        <tr>
+            <th>V</th>
+            <th>E</th>
+            <th>D</th>
+        </tr>
+
+        <tbody>
+            <tr>
+                <td scope="row">Barcelona</td>
+                <td>10</td>
+                <td>5</td>
+                <td>3</td>
+                <td>35</td>
+            </tr>
+
+            <tr>
+                <td scope="row">Real Madrid</td>
+                <td>12</td>
+                <td>3</td>
+                <td>2</td>
+                <td>39</td>
+            </tr>
+
+            <tr>
+                <td scope="row">Atletico Madrid</td>
+                <td>8</td>
+                <td>6</td>
+                <td>4</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Titulo - resumen de calificaciones</h1>
+    <table border="1">
+        <caption>Notas del prirmer trimestre</caption>
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Matematicas</th>
+                <th>Lenguaje</th>
+                <th>Ciencias</th>
+                <th>Promedio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Luiz Ruiz</td>
+                <td>9</td>
+                <td>8</td>
+                <td>9</td>
+                <td>8.7</td>
+            </tr>
+
+            <tr>
+                <td>Jorge Lazaro</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>7.0</td>
+            </tr>
+
+            <tr>
+                <td>Andreina Medina</td>
+                <td>10</td>
+                <td>9</td>
+                <td>10</td>
+                <td>9.7</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Media clase</th>
+                <td>8.3</td>
+                <td>8.0</td>
+                <td>9.8</td>
+                <td>8.5</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h1>Colgroup - Calififcaciones</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <col style="background-color:antiquewhite">
+                <col style="background-color:aquamarine">
+                <col style="background-color:bisque">
+                <col style="background-color:yellow">
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jhonny la cruz</td>
+                <td>Martes</td>
+                <td>Miercoles</td>
+                <td>Jueves</td>
+            </tr>
+
+            <tr>
+                <td>Programacion I</td>
+                <td>7:00 am</td>
+                <td>8:00 am</td>
+                <td>9:00 am</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
