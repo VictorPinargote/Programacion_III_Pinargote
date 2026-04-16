@@ -114,3 +114,8 @@ lerna-debug.log
 *.seed
 *.pid.lock
 *.mp4
+*.jpg
+*.wav
+*.ogg
+*.mp3
+*.svg

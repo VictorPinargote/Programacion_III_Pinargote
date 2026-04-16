@@ -1,0 +1,48 @@
+h3 {
+    color: aquamarine;
+    font-size: 6rem;
+}
+
+.parrafos {
+    color: rgb(red, green, blue);
+    font-size: 1rem;
+}
+
+.producto-card {
+    background-color: chartreuse;
+    border: 1px solid #e0e0e0;
+}
+
+.producto-nombre {
+    font-size: 1.1rem;
+    color: darkslateblue;
+}
+
+.producto-precio {
+    font-size: 1.3rem;
+    color: color(from color srgb r g b);
+    font-weight: bold;
+}
+
+#parrafo_id {
+    font-size: 2.3rem;
+    color: darkseagreen;
+    font-weight: bold;
+}
+
+* {
+    font-size: 1.2rem;
+    color: darkcyan;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.menu>li {
+    color: inherit;
+}
+
+.navbar a{
+    color: cadetblue;
+    text-decoration: double;
+}
