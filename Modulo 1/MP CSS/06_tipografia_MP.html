@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISN - Admisiones</title>
+    <link rel="stylesheet" href="estilos.css">
+    
+    <!-- Aquí llamamos a las fuentes de Google del Paso 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header id="inicio" class="contenedor-centrado">
+        <!-- Aplicamos la clase .titulos para la fuente elegante -->
+        <h1 class="titulos">Instituto Superior NEXUS (ISN)</h1>
+        <!-- Aplicamos .titulo-seccion para negrita -->
+        <h2 class="titulo-seccion">Portal de Admisiones 2026</h2>
+        <!-- Aplicamos .descripcion para la fuente normal -->
+        <p class="descripcion">Formación de profesionales en tecnología y desarrollo de software.</p>
+    </header>
+    
+    <div class="header">
+        <input type="checkbox" id="toggle-menu">
+        <label for="toggle-menu" class="btn-menu">☰ Menú</label>
+        <nav class="menu-movil">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#oferta">Oferta Académica</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br>
+
+    <main>
+        <div class="banner-oferta titulos">
+            🔥 Oferta: 20% de descuento en matrícula
+        </div>
+
+        <section id="oferta" class="contenedor-centrado">
+            <h3 class="titulo-seccion">Carrera Estrella</h3>
+            <hr>
+            
+            <p class="descripcion">
+                <strong class="titulo-seccion">Desarrollo de Software Full-Stack</strong>
+                <span class="etiqueta-nuevo">Top Ventas</span>
+            </p>
+            
+            <p class="descripcion" style="margin: 15px 0;">
+                <!-- Clases del paso 6 para precios tachados y destacados -->
+                Inversión: <span class="precio-original">$150.00</span> | <span class="precio-producto">$100.00</span>
+            </p>
+            
+            <a href="#inscripcion" class="btn-carrito btn-primario-oscuro">Inscribirse</a>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <h6 class="titulo-seccion">Contacto</h6>
+        <div class="contenedor-centrado">
+            <!-- Usamos la clase .internacional -->
+            <p class="internacional">Quito, Ecuador</p>
+            <!-- Usamos la clase .nota-legal para letra delgada -->
+            <p class="nota-legal">Copyright &copy; 2026 Instituto Superior NEXUS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

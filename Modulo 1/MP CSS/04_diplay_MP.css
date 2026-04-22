@@ -1,0 +1,163 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+    background-color: #f8f8f8;
+    color: #1a1a2e;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #001f3f;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: blueviolet;
+}
+
+p {
+    text-align: center;
+    line-height: 1.6;
+}
+
+hr {
+    width: 10%;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+}
+
+section {
+    padding: 30px 20px;
+    margin: 10px 0;
+}
+
+.contenedor-centrado {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.texto-destacado {
+    font-weight: bold;
+    color: #e63946;
+}
+
+.listas-izq {
+    text-align: left;
+}
+
+nav {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.tabla-isn {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.detalles-malla summary {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.video-contenedor {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.video-contenedor video {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.bloque-codigo {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.alerta-consejo {
+    background-color: #fff3cd;
+    padding: 10px;
+    border-left: 4px solid #ffc107;
+    margin-bottom: 15px;
+}
+
+.input-form {
+    width: 90%;
+    padding: 5px;
+}
+
+#contacto {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.banner-oferta {
+    display: block;
+    width: 100%;
+    background-color: #e63946;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.etiqueta-nuevo {
+    display: inline;
+    background-color: #2a9d8f;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-left: 8px;
+}
+
+.btn-carrito, .boton-enviar {
+    display: inline-block;
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}

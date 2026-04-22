@@ -1,0 +1,232 @@
+:root {
+    --color-primario: #e63946;
+    --color-secundario: #1a1a2e;
+    --color-acento: #457b9d;
+    --color-fondo: #f8f9fa;
+    --color-texto: #212529;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    background-color: var(--color-fondo);
+    color: var(--color-secundario);
+}
+
+h1, h2, h3, h6 {
+    color: var(--color-secundario);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    line-height: 1.6;
+}
+
+hr {
+    width: 10%;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+}
+
+section {
+    padding: 30px 20px;
+    margin: 10px 0;
+}
+
+.contenedor-centrado {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    background: var(--color-secundario);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+#toggle-menu {
+    display: none;
+}
+
+.btn-menu {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.menu-movil {
+    display: none;
+    background: var(--color-acento);
+    padding: 1rem;
+    margin-top: 10px;
+}
+
+#toggle-menu:checked ~ .menu-movil {
+    display: block;
+}
+
+.menu-movil ul {
+    list-style: none;
+}
+
+.menu-movil li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.menu-movil a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.banner-oferta {
+    display: block;
+    width: 100%;
+    background-color: var(--color-primario);
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+.etiqueta-nuevo {
+    display: inline;
+    background-color: #2a9d8f;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-left: 8px;
+}
+
+.btn-carrito {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primario-oscuro {
+    background-color: color-mix(in srgb, var(--color-primario) 80%, black);
+    color: white;
+}
+
+.titulos {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.internacional {
+    font-family: 'Inter', sans-serif;
+    color: cadetblue;
+}
+
+.titulo-seccion {
+    font-weight: 700;
+}
+
+.precio-producto {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+.descripcion {
+    font-weight: 400;
+}
+
+.nota-legal {
+    font-weight: 300;
+}
+
+.precio-original {
+    font-style: italic;
+    text-decoration: line-through;
+    color: #999;
+}
+
+.parrafo {
+    line-height: 1.6;
+}
+
+.titulo-producto {
+    line-height: 1.2;
+}
+
+.descripcion-larga {
+    line-height: 1.8;
+}
+
+.logo-tienda {
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.etiqueta-categoria {
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
+}
+
+.precio-total {
+    text-align: right;
+}
+
+.texto-justificado {
+    text-align: justify;
+}
+
+.none-text-decoration {
+    text-decoration: none;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.precio-antes {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.link-destacado {
+    text-decoration: underline;
+    text-decoration-color: #e63946;
+    text-underline-offset: 4px;
+}
+
+.subtitulo {
+    text-transform: capitalize;
+}
+
+.codigo-producto {
+    text-transform: lowercase;
+}
+
+.producto-nombre {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.alerta {
+    color: red;
+}
+
+.exito {
+    color: green;
+}
+
+.info {
+    color: blue;
+}

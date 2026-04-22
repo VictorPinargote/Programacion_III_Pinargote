@@ -1,0 +1,81 @@
+/* Selector Universal: Reseteamos para que no haya espacios raros */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Selector de Etiqueta: Estilo base para todos los párrafos */
+p {
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Selector de Clase: Para las tarjetas de las carreras */
+.carrera-card {
+    background-color: #f0f4f8;
+    border: 2px solid #001f3f;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.carrera-nombre {
+    color: darkslateblue;
+    font-size: 1.5rem;
+}
+
+/* Selector de ID: Para la sección de oferta (fondo especial) */
+#oferta-principal {
+    background-color: #ffffff;
+    padding-bottom: 40px;
+}
+
+/* Selector Combinado: Enlaces dentro del footer */
+footer a {
+    color: cadetblue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Selector por atributo (Bonus del archivo 9): Etiquetas code */
+code {
+    background-color: #2d2d2d;
+    color: aquamarine;
+    padding: 5px;
+}
+
+/* Bloque completo que ocupa el 100% (block) */
+.banner-oferta {
+    display: block;
+    width: 100%;
+    background-color: #e63946;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Etiqueta pequeña que fluye con el texto (inline) */
+.etiqueta-nuevo {
+    display: inline;
+    background-color: #2a9d8f;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+/* Botón que fluye con el texto pero respeta el padding (inline-block) */
+.btn-accion {
+    display: inline-block;
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
