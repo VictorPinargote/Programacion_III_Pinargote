@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+.precio-producto {
+  font-size: 1.2rem;
+  color: #e63946;
+  font-weight: bold;
+}
+/* Fuente de display para títulos de TechStore */
+.titulos {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Fuente de cuerpo para textos y UI */
+.internacional {
+  font-family: 'Inter', sans-serif;
+  color: #16c0c6;
+}
+.titulo-seccion   { font-weight: 700; } /* negrita */
+.precio-producto  { font-weight: 600; } /* semi-negrita */
+.descripcion      { font-weight: 400; } /* normal */
+.nota-legal       { font-weight: 300; } /* delgado */
+.precio-original {
+  font-style: italic;
+  text-decoration: line-through;
+  color: #999;
+}
