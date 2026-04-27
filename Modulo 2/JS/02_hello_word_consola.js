@@ -1,0 +1,1 @@
+console.log("hello desde consola con nodejs");
