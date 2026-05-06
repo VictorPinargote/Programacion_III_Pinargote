@@ -1,5 +1,5 @@
 // Ejemplo — reporte de inventario con alertas por posición
-/*
+
 const inventario = [
   { codigo: "A01", nombre: "Teclado", stock: 2 },
   { codigo: "A02", nombre: "Monitor", stock: 15 },
