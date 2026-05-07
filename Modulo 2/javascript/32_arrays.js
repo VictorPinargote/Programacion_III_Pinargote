@@ -178,3 +178,15 @@ const anidado = [[1, 2], [3, 4], [5, 6]];
 const plano   = anidado.reduce((acum, arr) => [...acum, ...arr], []);
 console.log(plano);   // [1, 2, 3, 4, 5, 6]
 // alternativa moderna: anidado.flat()
+
+//clase del 07-05-2026
+const celsius = [0, 15, -5, 22, 37, 100, -10, 28];
+
+
+const temps_frater = celsius.map(c => c * 9/5 + 32);
+console.log("Fahrenheit: %", temps_frater);
+
+const range_celcius = celsius.filter(z => z >= 0 && z <= 30);
+console.log("Entre 0 y 30°C: %", range_celcius);
+
+console.log("Entre 0 y 30°C en °F: %", temps_frater.filter(z => z >= 0 && z <= 30));
