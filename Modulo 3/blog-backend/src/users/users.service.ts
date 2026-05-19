@@ -14,7 +14,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const hashedPassword = await bcrypt.hash(createUserDto.password!, 10);
+    const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
     const user = this.userRepository.create({
       ...createUserDto,
       password: hashedPassword,
@@ -32,10 +32,6 @@ export class UsersService {
 
   async findByEmail(email: string) {
     return this.userRepository.findOne({ where: { email } });
-  }
-
-  async findByUsername(username: string) {
-    return this.userRepository.findOne({ where: { username } });
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
