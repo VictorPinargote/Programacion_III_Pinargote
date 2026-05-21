@@ -1,67 +1,62 @@
 import { Injectable } from '@nestjs/common';
 import { ProductDto } from './product.dto';
+import { TrianguloDto } from './triangulo.dto';
 
 @Injectable()
 export class AppService {
-  private products: ProductDto[] = [{
-    id: 2,
-    name: 'Laptop DELL',
-    price: 1000,
-    stock: 10
-  }];
+  private products: ProductDto[] = [];
 
-  getHeath(): any {
+  getHealth(): any {
     return {
-      status: 'Online',
-      service: 'blog service api',
-      version: '0.0.1',
-      date: new Date()
+      "status": "online",
+      "service": "blog service api",
+      "version": "0.0.1",
+      "date": new Date()
     };
   }
 
   createProduct(product: ProductDto): ProductDto {
     const newProduct: ProductDto = {
-      ...product, // Corregido: Primero esparcimos el producto...
-      id: Math.floor(Math.random() * 1000) + 1 // ...luego asignamos nuestro propio ID para que no se sobreescriba
+      ...product,
+      id: Math.floor(Math.random() * 1000) + 1
     };
+
     this.products.push(newProduct);
-    return newProduct;
+
+    return {
+      "id": newProduct.id,
+      "name": newProduct.name,
+      "price": newProduct.price,
+      "stock": newProduct.stock
+    };
   }
 
   findAll(): ProductDto[] {
     return this.products;
   }
 
-  findById(id: string): ProductDto {
-    return this.products.find(product => product.id === Number(id))!;
+  findById(id: string): ProductDto | undefined {
+    return this.products.find(p => p.id === parseInt(id));
   }
 
-  update(id: string, updatedProductDto: ProductDto): any {
-    const product = this.products.find(product => product.id === Number(id));
-    if (!product) {
-      return;
-    }
-    Object.assign(product, updatedProductDto);
-    return product;
+  update(id: string, updatedProduct: ProductDto): any {
+    const index = this.products.findIndex(p => p.id === parseInt(id));
+    this.products[index] = { ...this.products[index], ...updatedProduct, id: parseInt(id) };
+    return this.products[index];
   }
 
-  deleteById(id: string): any {
-    const index = this.products!
-        .findIndex(product => product.id === Number(id))!;
-    if (index === -1){
-      return;
-    }
-    const deleteProduct = this.products[index];
+  delete(id: string): any {
+    const index = this.products.findIndex(p => p.id === parseInt(id));
     this.products.splice(index, 1);
-    return deleteProduct;
+    return { message: `Producto ${id} eliminado correctamente` };
   }
 
-  areaTriangulo(data: any): any {
-    const area = (data.base * data.altura)/2;
+  calcularAreaTriangulo(triangulo: TrianguloDto): any {
+    const area = (triangulo.base * triangulo.altura) / 2;
     return {
-      "base": data.base,
-      "altura": data.altura,
-      "areatriangulo": area
+      base: triangulo.base,
+      altura: triangulo.altura,
+      area: area
     };
   }
 }

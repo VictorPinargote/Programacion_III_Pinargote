@@ -2,11 +2,11 @@ import { IsString, IsUUID } from 'class-validator';
 
 export class CreatePostDto {
   @IsString()
-  title?: string;
+  title: string;
 
   @IsString()
-  content?: string;
+  content: string;
 
   @IsUUID()
-  categoryId?: string;
+  categoryId: string;
 }

@@ -1,18 +1,34 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { AuthController } from './auth.controller';
+import {
+  Controller,
+  Post,
+  Body,
+  BadRequestException,
+  UnauthorizedException
+} from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { LoginDto } from './dto/login.dto';
+import { CreateUserDto } from '../users/create-user.dto';
+import { SuccessResponseDto } from 'src/common/dto/response.dto';
 
-describe('AuthController', () => {
-  let controller: AuthController;
+@Controller('auth')
+export class AuthController {
+  constructor(private readonly authService: AuthService) {}
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [AuthController],
-    }).compile();
+  @Post('login')
+  async login(@Body() loginDto: LoginDto) {
+    const token = await this.authService.login(loginDto);
+    if (!token) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+    return new SuccessResponseDto('Login successful', { access_token: token });
+  }
 
-    controller = module.get<AuthController>(AuthController);
-  });
-
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
-});
+  @Post('register')
+  async register(@Body() createUserDto: CreateUserDto) {
+    const token = await this.authService.register(createUserDto);
+    if (!token) {
+      throw new BadRequestException('Failed to register user');
+    }
+    return new SuccessResponseDto('Registration successful', { access_token: token });
+  }
+}
