@@ -15,10 +15,10 @@ export class AuthService {
 
   async login(loginDto: LoginDto): Promise<string | null> {
     try {
-      const user: User | null = await this.usersService.findByUsername(loginDto.username);
+      const user: User | null = await this.usersService.findByUsername(loginDto!.username!);
       if (!user) return null;
 
-      const isValid = await bcrypt.compare(loginDto!.password, user.password);
+      const isValid = await bcrypt.compare(loginDto!.password!, user!.password!);
       if (!isValid) return null;
 
       const payload = { id: user.id, username: user.username };

@@ -25,4 +25,4 @@ export class GlobalHttpExceptionFilter implements ExceptionFilter {
     const errorResponse = new ErrorResponseDto(message, status);
     response.status(status).json(errorResponse);
   }
-}           
+}
