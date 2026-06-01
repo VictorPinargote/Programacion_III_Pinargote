@@ -5,11 +5,17 @@ import { SuccessResponseDto } from '../common/dtos/response.dto';
 
 @Controller('mail')
 export class MailController {
-  constructor(private readonly mailService: MailService) {}
+  constructor(private readonly mailService: MailService) { }
 
   @Post('gmail')
   async sendGmail(@Body() dto: SendMailDto) {
     const result = await this.mailService.sendMail(dto);
     return new SuccessResponseDto('Correo enviado con Gmail', result);
+  }
+
+  @Get('public-api')
+  async getUsersFromPublicApi() {
+    const result = await this.mailService.fetchUserListFromPublicApi();
+    return new SuccessResponseDto('Usuarios obtenidos', result);
   }
 }
