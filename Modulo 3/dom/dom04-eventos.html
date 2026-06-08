@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Manipulacion de DOM</title>
+        <script src="dom04-eventos.js" defer></script>
+        <style>
+            .boton {
+                background-color: red;
+                padding: 0%.5em 1em;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="titulo">Eventos del DOM</h1>
+        <h2 id="mensaje" onclick="alert('Hello Dom')">Eventos Inline</h2>
+        <button class="boton" id="btn" onclick="mostrarAlerta()">
+            botonssillo
+        </button>
+        <br />
+        <button class="boton" id="btn2" onclick="AgregarProductos()">
+            Agregar producto
+        </button>
+        <ul id="lista-productos-1"></ul>
+
+        <button class="boton" id="btn3">Agregar producto desde listener</button>
+        <ul id="lista-productos2"></ul>
+
+        <p id="parrafo4">Hola, me llamo jaime antonieto de las nieves</p>
+        <button id="btn4" onclick="cambiarParrafo()">
+            Corregir ortografia
+        </button>
+
+        <h2 id="h2sito">Hoy es Domingo</h2>
+        <button id="btn6">Actualizar fecha</button>
+
+        <br />
+        <input type="text" placeholder="Escribe algo..." id="campos" />
+    </body>
+</html>
