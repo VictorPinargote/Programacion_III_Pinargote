@@ -3,13 +3,15 @@
 import WelcomeBanner       from './components/WelcomeBanner'
 import UserGreeting        from './components/UserGreeting'
 import CurrentDateDisplay  from './components/CurrentDateDisplay'
-/*import ColoredBox          from './components/ColoredBox'
+import ColoredBox          from './components/ColoredBox'
 import ConditionalGreeting from './components/ConditionalGreeting'
 import FruitList           from './components/FruitList'
 import PriceTag            from './components/PriceTag'
 import StatusBadge         from './components/StatusBadge'
 import MiniProfileCard     from './components/MiniProfileCard'
 import SimpleInfoTable     from './components/SimpleInfoTable'
+import VehiculosTable      from './components/VehicleTable' // Importamos el componente de vehículos
+/*
 import ProductCard         from './components/ProductCard'
 import ProductCatalogList  from './components/ProductCatalogList'
 import UserProfileCard     from './components/UserProfileCard'
@@ -26,19 +28,23 @@ import UserProfileCard     from './components/UserProfileCard'
 // │   8  StatusBadge         — Record para mapear tipos a estilos           │
 // │   9  MiniProfileCard     — composición de componentes                   │
 // │  10  SimpleInfoTable     — tabla con rows tipadas                       │
-// │  11  ProductCard         — interfaz de props con opcionales y booleanas │
+// │  11  VehicleTable        — tabla tipada de vehículos                    │
 // │  12  ProductCatalogList  — lista con renderizado condicional de items   │
 // │  13  UserProfileCard     — ejercicio: props complejas + rol             │
 // └──────────────────────────────────────────────────────────────────────────┘
-const PASO: number = 3
+const PASO: number = 11
 
-/*
 const fruits = [
   { name: 'Manzana', emoji: '🍎', calories: 52 },
   { name: 'Banana',  emoji: '🍌', calories: 89 },
   { name: 'Naranja', emoji: '🍊', calories: 47 },
+  { name: 'Sandia',  emoji: '🍉', calories: 50 },
+  { name: 'Banana',  emoji: '🍌', calories: 5  },
+  { name: 'Melon',   emoji: '🍈', calories: 56 },
+  { name: 'Kiwi',    emoji: '🥝', calories: 61, inSeason: true }
 ]
 
+/*
 const catalog = [
   { id: 1, name: 'Teclado mecánico',  price: 89.99 },
   { id: 2, name: 'Monitor 27 pulgadas', price: 349.99 },
@@ -49,23 +55,22 @@ const catalog = [
 
 export default function App() {
   const content =
-    PASO ===  1 ? <WelcomeBanner subtitle='Porgramadores Estrellas' /> :
+    PASO ===  1 ? <WelcomeBanner subtitle='Programadores Estrellas' /> :
     PASO ===  2 ? <><UserGreeting name="Ana García" occupation="Desarrolladora Frontend"/></> :
     PASO ===  3 ? <CurrentDateDisplay /> :
-    /*
     PASO ===  4 ? (
-      <div style={{ display: 'flex', gap: 12 }}>
-        <ColoredBox color="#0070f3" label="Primary" />
-        <ColoredBox color="#22c55e" label="Success" />
-        <ColoredBox color="#e00"    label="Danger" />
+      <div style={{ display: 'flex', gap: 12}}>
+        <ColoredBox color="#f59e0b" label="Primary" width={120} height={40}/>
+        <ColoredBox color="#8b5cf6" label="Success" />
+        <ColoredBox color="#ec4899" label="Danger" />
       </div>
     ) :
-    PASO ===  5 ? <ConditionalGreeting isLoggedIn={true} userName="Ana" timeOfDay="afternoon" /> :
+    PASO ===  5 ? <ConditionalGreeting isLoggedIn={false} userName="Carlos" timeOfDay="afternoon" /> :
     PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> :
     PASO ===  7 ? (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-end' }}>
         <PriceTag amount={99.99} currency="USD" />
-        <PriceTag amount={99.99} currency="USD" discountPercent={20} />
+        <PriceTag amount={99.99} currency="USD" discountPercent={520} />
       </div>
     ) :
     PASO ===  8 ? (
@@ -74,6 +79,7 @@ export default function App() {
         <StatusBadge status="pending" />
         <StatusBadge status="error" />
         <StatusBadge status="inactive" />
+        <StatusBadge status="pending" label="En revisión" />
       </div>
     ) :
     PASO ===  9 ? (
@@ -95,7 +101,15 @@ export default function App() {
         ]}
       />
     ) :
-    PASO === 11 ? <ProductCard title="Teclado inalámbrico" description="Bluetooth 5.0, retroiluminado" highlighted /> :
+    PASO === 11 ? (
+      <VehiculosTable
+        title="Catálogo de Vehículos"
+        rows={[
+          { marca: 'Toyota', modelo: 'Corolla', anio: 2024, precio: '$25,000', esElectrico: false },
+          { marca: 'Chevrolet', modelo: 'Bolt EV', anio: 2023, precio: '$28,000', esElectrico: true }
+        ]}
+      />
+    ) : /*
     PASO === 12 ? <ProductCatalogList products={catalog} title="Productos disponibles" /> :
     PASO === 13 ? (
       <UserProfileCard
@@ -110,7 +124,7 @@ export default function App() {
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
-    <main style={{ maxWidth: 540, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
+    <main style={{ maxWidth: 600, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
       {content}
     </main>
   )
