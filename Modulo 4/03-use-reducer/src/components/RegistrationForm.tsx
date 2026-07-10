@@ -11,7 +11,7 @@ interface FormState {
 }
 
 type FormAction =
-  | { type: 'SET_FIELD'; field: keyof Pick<FormState, 'name' | 'email' | 'password'>; value: string }
+  | { type: 'SET_FIELD'; field: keyof Pick<FormState, 'name' | 'email' | 'password'| 'lastname '>; value: string }
   | { type: 'SET_ERRORS'; errors: FormState['errors'] }
   | { type: 'SUBMIT_START' }
   | { type: 'SUBMIT_SUCCESS' }
