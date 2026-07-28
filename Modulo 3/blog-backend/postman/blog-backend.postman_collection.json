@@ -1,0 +1,496 @@
+{
+  "info": {
+    "name": "Blog Backend - CRUD Completo",
+    "description": "Coleccion de pruebas para todos los endpoints del backend NestJS (auth, categories, posts, users, cursos, mail, products).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{token}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000" },
+    { "key": "token", "value": "" },
+    { "key": "categoryId", "value": "" },
+    { "key": "postId", "value": "" },
+    { "key": "userId", "value": "" },
+    { "key": "cursoId", "value": "" },
+    { "key": "productId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET Health Check",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/health"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "POST Register",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "  const body = pm.response.json();",
+                  "  if (body.data && body.data.access_token) {",
+                  "    pm.collectionVariables.set('token', body.data.access_token);",
+                  "  }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/auth/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"joel123\",\n  \"email\": \"joel@test.com\",\n  \"password\": \"123456\"\n}"
+            }
+          }
+        },
+        {
+          "name": "POST Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "  const body = pm.response.json();",
+                  "  if (body.data && body.data.access_token) {",
+                  "    pm.collectionVariables.set('token', body.data.access_token);",
+                  "  }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"joel123\",\n  \"password\": \"123456\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "POST Create Category",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "  const body = pm.response.json();",
+                  "  if (body.data && body.data.id) {",
+                  "    pm.collectionVariables.set('categoryId', body.data.id);",
+                  "  }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/categories",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Tecnologia\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET All Categories",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/categories?page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["categories"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Category By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/categories/{{categoryId}}"
+          }
+        },
+        {
+          "name": "PUT Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/categories/{{categoryId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Tecnologia Actualizada\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Category",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/categories/{{categoryId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "POST Create Post",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "  const body = pm.response.json();",
+                  "  if (body.data && body.data.id) {",
+                  "    pm.collectionVariables.set('postId', body.data.id);",
+                  "  }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/posts",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Mi primer post\",\n  \"content\": \"Contenido de prueba\",\n  \"categoryId\": \"{{categoryId}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET All Posts",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/posts?page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["posts"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Post By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/posts/{{postId}}"
+          }
+        },
+        {
+          "name": "PUT Update Post",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/posts/{{postId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Post actualizado\",\n  \"content\": \"Contenido actualizado\",\n  \"categoryId\": \"{{categoryId}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Post",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/posts/{{postId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "POST Create User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "  const body = pm.response.json();",
+                  "  if (body.data && body.data.id) {",
+                  "    pm.collectionVariables.set('userId', body.data.id);",
+                  "  }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/users",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"nuevoUsuario\",\n  \"email\": \"nuevo@test.com\",\n  \"password\": \"123456\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET All Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/users?page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["users"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET User By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/users/{{userId}}"
+          }
+        },
+        {
+          "name": "PUT Update User",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/users/{{userId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"usuarioActualizado\"\n}"
+            }
+          }
+        },
+        {
+          "name": "PUT Upload Profile Image",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/users/{{userId}}/profile",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "profile", "type": "file", "src": [] }
+              ]
+            }
+          }
+        },
+        {
+          "name": "DELETE User",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/users/{{userId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cursos",
+      "item": [
+        {
+          "name": "POST Create Curso",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "  const body = pm.response.json();",
+                  "  if (body.data && body.data._id) {",
+                  "    pm.collectionVariables.set('cursoId', body.data._id);",
+                  "  }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/cursos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Curso de NestJS\",\n  \"descripcion\": \"Backend con NestJS desde cero\",\n  \"categoria\": \"Backend\",\n  \"fecha_inicio\": \"2026-08-01\",\n  \"fecha_fin\": \"2026-09-30\",\n  \"nivel\": \"Intermedio\",\n  \"requisitos\": [\"JavaScript\", \"TypeScript\"],\n  \"precio\": 49.99,\n  \"instructor\": {\n    \"nombre\": \"Joel Pinargote\",\n    \"email\": \"joel@test.com\"\n  },\n  \"calificacion_promedio\": 0,\n  \"estado\": \"activo\",\n  \"contenidos\": [\n    {\n      \"titulo\": \"Introduccion a NestJS\",\n      \"duracion\": 15,\n      \"descripcion\": \"Primeros pasos con el framework\",\n      \"tipo\": \"video\",\n      \"enlace\": \"https://ejemplo.com/video1\",\n      \"dificultad\": \"baja\",\n      \"fecha_publicacion\": \"2026-08-01\",\n      \"completado\": false,\n      \"tiempo_estimado\": \"15 min\",\n      \"video_id\": \"abc123\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "GET All Cursos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/cursos?page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["cursos"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Curso By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/cursos/{{cursoId}}"
+          }
+        },
+        {
+          "name": "PUT Update Curso",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/cursos/{{cursoId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Curso de NestJS Actualizado\",\n  \"descripcion\": \"Backend con NestJS desde cero - version 2\",\n  \"categoria\": \"Backend\",\n  \"fecha_inicio\": \"2026-08-01\",\n  \"fecha_fin\": \"2026-09-30\",\n  \"nivel\": \"Avanzado\",\n  \"requisitos\": [\"JavaScript\", \"TypeScript\", \"SQL\"],\n  \"precio\": 59.99,\n  \"instructor\": {\n    \"nombre\": \"Joel Pinargote\",\n    \"email\": \"joel@test.com\"\n  },\n  \"calificacion_promedio\": 4.5,\n  \"estado\": \"activo\",\n  \"contenidos\": []\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Curso",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/cursos/{{cursoId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products (in-memory)",
+      "item": [
+        {
+          "name": "POST Create Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "  const body = pm.response.json();",
+                  "  if (body.id) {",
+                  "    pm.collectionVariables.set('productId', body.id);",
+                  "  }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/products",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Teclado mecanico\",\n  \"price\": 45.5,\n  \"stock\": 20\n}"
+            }
+          }
+        },
+        {
+          "name": "GET All Products",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/products"
+          }
+        },
+        {
+          "name": "GET Product By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/products/{{productId}}"
+          }
+        },
+        {
+          "name": "PUT Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/products/{{productId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Teclado mecanico RGB\",\n  \"price\": 55.0,\n  \"stock\": 15\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Product",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/products/{{productId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mail",
+      "item": [
+        {
+          "name": "POST Send Gmail",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/mail/gmail",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"destinatario@test.com\",\n  \"subject\": \"Prueba de correo\",\n  \"message\": \"Este es un mensaje de prueba\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET Users From Public Api",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/mail/public-api"
+          }
+        }
+      ]
+    }
+  ]
+}
